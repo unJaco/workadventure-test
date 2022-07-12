@@ -11,8 +11,11 @@ let obj: any = undefined;
 // Waiting for the API to be ready
 WA.onInit().then(() => {
 
+    console.log('Start');
     console.log('Scripting API ready');
-    console.log('Player tags: ',WA.player.tags)
+    console.log('Player tags: ',WA.player.tags);
+    
+
 
     WA.room.onEnterLayer('clockZone').subscribe(() => {
 
@@ -26,7 +29,7 @@ WA.onInit().then(() => {
 
           }
 
-          console.log('HELLO');
+        console.log('HELLO');
         console.log(userAction.toString);
         console.log(obj);
 
