@@ -25,7 +25,7 @@ WA.onInit().then(() => {
 
           }
 
-
+          console.log(obj);
 
         const today = new Date();
         const time = today.getHours() + ":" + today.getMinutes();   
