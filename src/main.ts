@@ -20,12 +20,15 @@ WA.onInit().then(() => {
             const response = await fetch('http://localhost:8080/api/v1/book');
             const myJson = await response.json(); //extract JSON from the http response
             // do something with myJson
-
+            
+            console.log('DO SOMETHING!!');
            obj = JSON.parse(myJson);
 
           }
 
-          console.log(obj);
+          console.log('HELLO');
+        console.log(userAction.toString);
+        console.log(obj);
 
         const today = new Date();
         const time = today.getHours() + ":" + today.getMinutes();   
