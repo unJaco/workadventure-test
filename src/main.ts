@@ -11,6 +11,8 @@ let obj: any = undefined;
 // Waiting for the API to be ready
 WA.onInit().then(() => {
 
+    WA.chat.sendChatMessage('Hello world', 'Mr Robot');
+
     console.log('Start');
     console.log('Scripting API ready');
     console.log('Player tags: ',WA.player.tags);
