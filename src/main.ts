@@ -20,8 +20,9 @@ WA.onInit().then(() => {
 
     WA.room.onEnterLayer('clockZone').subscribe(() => {
 
-
-        //fetch('http://localhost:8080/api/v1/book').then(res => res.json()).then(data => console.log(data));
+        
+        console.log('Fetch Call');
+        fetch('http://localhost:8080/api/v1/book').then(res => res.json()).then(data => console.log(data));
 
 
 
