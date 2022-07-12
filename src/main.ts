@@ -6,7 +6,6 @@ console.log('Script started successfully');
 
 let currentPopup: any = undefined;
 
-let obj: any = undefined;
 
 // Waiting for the API to be ready
 WA.onInit().then(() => {
@@ -21,28 +20,17 @@ WA.onInit().then(() => {
 
     WA.room.onEnterLayer('clockZone').subscribe(() => {
 
-        const userAction = async () => {
-            const response = await fetch('http://localhost:8080/api/v1/book');
-            const myJson = await response.json(); //extract JSON from the http response
-            // do something with myJson
-            
-            console.log('DO SOMETHING!!');
-           obj = JSON.parse(myJson);
 
-          }
+        fetch('http://localhost:8080/api/v1/book').then(res => res.json()).then(data => console.log(data));
 
-        console.log('HELLO');
-        console.log(userAction.toString);
-        console.log(obj);
+
+
 
         const today = new Date();
         const time = today.getHours() + ":" + today.getMinutes();   
 
-        if(obj){
-            currentPopup = WA.ui.openPopup("clockPopup","It's " + obj.title,[]);
-        } else {
-            currentPopup = WA.ui.openPopup("clockPopup","It's " +time,[]);
-        }
+        currentPopup = WA.ui.openPopup("clockPopup","It's " +time,[]);
+      
         
         
     })
