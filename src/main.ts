@@ -21,20 +21,36 @@ WA.onInit().then(() => {
     WA.room.onEnterLayer('clockZone').subscribe(() => {
 
         
-        console.log('Fetch Call');
-        fetch('http://localhost:8080/api/v1/book').then(res => res.json()).then(data => console.log(data));
+        //console.log('Fetch Call');
+        //fetch('http://localhost:8080/api/v1/book').then(res => res.json()).then(data => console.log(data));
+
+        
 
 
 
-
-        const today = new Date();
+        if(WA.player.state.allowed == "true"){
+            const today = new Date();
         const time = today.getHours() + ":" + today.getMinutes();   
 
         currentPopup = WA.ui.openPopup("clockPopup","It's " +time,[]);
+            console.log(WA.player.state.allowed);
+            console.log(WA.player.state.hasVariable('allowed'));
+        } else {
+            currentPopup = WA.ui.openPopup("clockPopip", "Something went wrong!", []);
+        }
+        
+
+        
       
         
         
-    })
+    });
+
+    WA.room.onEnterLayer('setVariable').subscribe(() => {
+
+        WA.player.state.allowed = "true";
+
+    });
 
     WA.room.onLeaveLayer('clockZone').subscribe(closePopUp)
 
