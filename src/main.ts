@@ -1,16 +1,22 @@
 /// <reference types="@workadventure/iframe-api-typings" />
 
-import { bootstrapExtra } from "@workadventure/scripting-api-extra";
+import { bootstrapExtra, getLayersMap } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
 let currentPopup: any = undefined;
+
+const layers = await getLayersMap();
 
 
 // Waiting for the API to be ready
 WA.onInit().then(() => {
 
     WA.chat.sendChatMessage('Hello world', 'Mr Robot');
+
+    
+
+
 
     console.log('Start');
     console.log('Scripting API ready');
@@ -25,7 +31,9 @@ WA.onInit().then(() => {
         //fetch('http://localhost:8080/api/v1/book').then(res => res.json()).then(data => console.log(data));
 
         
-
+        for (const layer of layers.values()){
+            console.log(layer.name);
+        }
 
 
         if(WA.player.state.allowed == "true"){
@@ -64,13 +72,15 @@ WA.onInit().then(() => {
 
     WA.room.onEnterLayer('setVariable').subscribe(() => {
 
+        console.log("juhu");
+
         WA.player.state.allowed = "true";
         WA.player.state.saveVariable("allow", true);
         var map = new Map();
         map.set("all", true);
         WA.player.state.initVariables(map);
 
-        console.log("juhu");
+        
 
 
 
