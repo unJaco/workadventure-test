@@ -21,6 +21,16 @@ WA.onInit().then(() => {
     console.log('Start');
     console.log('Scripting API ready');
     console.log('Player tags: ',WA.player.tags);
+
+    console.log("juj")
+        
+    for (const layer of layers.values()){
+
+        console.log(layer.name)
+        console.log(layer)
+    }
+
+    
     
 
 
@@ -30,13 +40,8 @@ WA.onInit().then(() => {
         //console.log('Fetch Call');
         //fetch('http://localhost:8080/api/v1/book').then(res => res.json()).then(data => console.log(data));
 
-        console.log("juj");
         
-        for (const layer of layers.values()){
-            console.log(layer.name);
-        }
 
-        WA.player.state.toto = "tat";
 
 
         if(WA.player.state.allowed == "true"){
