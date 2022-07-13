@@ -72,6 +72,8 @@ WA.onInit().then(() => {
 
         console.log("juhu");
 
+
+
     });
 
     WA.room.onLeaveLayer('clockZone').subscribe(closePopUp)
