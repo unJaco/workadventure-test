@@ -35,7 +35,7 @@ WA.onInit().then(() => {
         currentPopup = WA.ui.openPopup("clockPopup","It's " +time,[]);
             console.log(WA.player.state.allowed);
             console.log(WA.player.state.hasVariable('allowed'));
-        } else if(WA.player.state.hasVariable("allow")){
+        } else if(WA.player.state.hasVariable("all")){
             currentPopup = WA.ui.openPopup("clockPopup", "coool", []);
 
             console.log(WA.player.state.loadVariable("allow"));
@@ -50,8 +50,12 @@ WA.onInit().then(() => {
 
             console.log(WA.player.state.loadVariable("allow"));
 
+            console.log(WA.player.state.loadVariable("all"));
+
             console.log(WA.player.state.hasVariable('allow'));
             console.log(WA.player.state.hasVariable('allowed'));
+
+            console.log(WA.player.state.hasVariable('all'));
             console.log(WA.player.state.allowed);
             
         }
@@ -62,6 +66,11 @@ WA.onInit().then(() => {
 
         WA.player.state.allowed = "true";
         WA.player.state.saveVariable("allow", true);
+        var map = new Map();
+        map.set("all", true);
+        WA.player.state.initVariables(map);
+
+        console.log("juhu");
 
     });
 
