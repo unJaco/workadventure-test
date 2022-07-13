@@ -35,20 +35,28 @@ WA.onInit().then(() => {
         currentPopup = WA.ui.openPopup("clockPopup","It's " +time,[]);
             console.log(WA.player.state.allowed);
             console.log(WA.player.state.hasVariable('allowed'));
-        } else {
-            currentPopup = WA.ui.openPopup("clockPopip", "Something went wrong!", []);
-        }
-        
+        } else if(WA.player.state.hasVariable("allow")){
+            currentPopup = WA.ui.openPopup("clockPopup", "coool", []);
 
+            console.log(WA.player.state.loadVariable("allow"));
+            console.log(WA.player.state.allow);
+        }
+    
         
-      
-        
+        else {
+            currentPopup = WA.ui.openPopup("clockPopup", "Something went wrong!", []);
+            
+            console.log(WA.player.state.hasVariable('allowed'));
+            console.log(WA.player.state.allowed);
+            
+        }
         
     });
 
     WA.room.onEnterLayer('setVariable').subscribe(() => {
 
         WA.player.state.allowed = "true";
+        WA.player.state.saveVariable("allow", true);
 
     });
 
