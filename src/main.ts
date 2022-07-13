@@ -46,6 +46,11 @@ WA.onInit().then(() => {
         else {
             currentPopup = WA.ui.openPopup("clockPopup", "Something went wrong!", []);
             
+
+
+            console.log(WA.player.state.loadVariable("allow"));
+
+            console.log(WA.player.state.hasVariable('allow'));
             console.log(WA.player.state.hasVariable('allowed'));
             console.log(WA.player.state.allowed);
             
